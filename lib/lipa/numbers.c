@@ -754,8 +754,6 @@ lisp_equal (LObject *args)
 static LObject *
 lisp_zerop (LObject *args)
 {
-  LObject *obj = NULL;
-
   if (!lipa_list_length (args, 1))
     {
       fputs ("zero? wants 1 argument\n", stderr);
@@ -766,8 +764,6 @@ lisp_zerop (LObject *args)
       fputs ("zero? wants numerical arguments!\n", stderr);
       return NULL;
     }
-
-  obj = lipa_car (args);
 
   return (L_FLOAT (lipa_car (args)) == 0 ? lisp_true : lisp_false);
 }

@@ -18,6 +18,7 @@
  */
 
 #include <stdio.h>
+#include <string.h>
 #include "basic.h"
 #include "list.h"
 #include "eval.h"
@@ -34,7 +35,7 @@ lipa_symbolname_lookup (gchar *name)
   while (!lipa_null (sym))
     {
       obj = lipa_car (sym);
-      if (!strcmp (name, L_SYMBOL(obj).name->str))
+      if (!strcmp (name, L_SYMBOL(obj).name->str)) 
 	{
 	  return obj;
 	}

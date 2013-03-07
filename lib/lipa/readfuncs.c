@@ -35,7 +35,7 @@ lisp_read (LObject *args)
       return NULL;
     }
 
-  return lipa_eval (lipa_read (L_STRING (lipa_car (args))->str));
+  return lipa_eval (lipa_read ((guchar*)L_STRING (lipa_car (args))->str));
 }
 
 void
