@@ -754,7 +754,7 @@ lisp_equal (LObject *args)
 static LObject *
 lisp_zerop (LObject *args)
 {
-  LObject *obj;
+  LObject *obj = NULL;
 
   if (!lipa_list_length (args, 1))
     {

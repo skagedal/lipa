@@ -1,7 +1,7 @@
 CC=gcc
 AR=ar
-CFLAGS=-Wall -O2 -g `glib-config --cflags`
-LIBS=`glib-config --libs` -lm 
+CFLAGS=-Wall -O2 -g `pkg-config --cflags glib-2.0`
+LIBS=`pkg-config --libs glib-2.0` -lm 
 
 OBJS=basic.o strings.o numbers.o list.o read.o eval.o print.o \
 	load.o readfuncs.o evalprocs.o typepredicates.o convert.o chars.o

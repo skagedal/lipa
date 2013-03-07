@@ -18,6 +18,7 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <glib.h>
 #include <getopt.h>
 #include <readline/readline.h>
@@ -55,7 +56,7 @@ int
 main (int argc, char *argv [])
 {
   int c, option_index = 0;
-  char *line = NULL;
+  guchar *line = NULL;
 
   /* for the 's' option */
   gchar *script_filename = NULL;
@@ -138,7 +139,7 @@ main (int argc, char *argv [])
   
   /* REPL */
 
-  rl_completion_entry_function = lipa_symbol_complete;
+  rl_completion_entry_function = (Function *)lipa_symbol_complete;
 
   fputs ("Hello.  Welcome to LIPA.\n", stdout);
   do
@@ -146,7 +147,7 @@ main (int argc, char *argv [])
       line = readline ("> ");
       if (line && *line)
 	{
-	  add_history (line);
+	  add_history ((char *)line);
 	  lipa_print (lipa_eval (lipa_read (line)));
 	  fputc ('\n', stdout);
 	}
