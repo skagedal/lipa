@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-Wall -O2 -g `pkg-config --cflags glib-2.0` -I../lib -DVERSION=\"$(VERSION)\"
-LIBS=-L../lib/lipa `pkg-config --libs glib-2.0`  -lreadline -lm -llipa 
+LIBS=-L../lib/lipa `pkg-config --libs glib-2.0`  -lreadline -llipa -lm 
 
 OBJS=lipa.o
 SOURCES=$(OBJS:.o=.c)
