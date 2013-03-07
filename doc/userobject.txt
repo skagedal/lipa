@@ -1,0 +1,14 @@
+	User-defined objects
+	simon 1999-03-09
+
+I added a hack so the user (C programmer) can let their subr's return
+objects of their own type.  For now, it's pretty lame and should be
+done in another way.
+
+Today, you can do lipa_new_userobject (some_data).
+
+You can't really make more than one type.
+
+There should be some way to register types, along with a name of the
+type (for the print representation), maybe callbacks for eval etc.?,
+and to easily do typecheck predicates etc.

@@ -1,0 +1,37 @@
+; This is a script.
+; It should print some things.
+; Why does it not work?  Works ok with guile.
+
+(display "Hello!")
+
+(display "\n")
+
+(define (square x)
+  (* x x))
+
+(define (map func list)
+  (if (null? list) 
+      '() 
+      (cons (func (car list)) 
+	    (map func (cdr list)))))
+
+
+(define (square-list list)
+  (map square list))
+
+(define (fac x)  ; This is a comment 
+  (if (= x 1)
+      1
+      (* x (fac (- x 1)))))
+
+(display "hmmm...\n")
+
+(define foo
+  (map number->string
+       (square-list '(1 2 3 4))))
+
+(map
+ (lambda (s)
+   (begin (display s)
+	  (display "\n")))
+ foo)

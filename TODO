@@ -1,0 +1,20 @@
+TODO:
+
+- automatically load "~/.liparc"?
+
+- - as a negation character for ints
+
+- #\newline and such
+
+- "let" special form
+
+- 
+
+EVENTUALLY MAYBE SOME DAY:
+
+- Error handling
+
+- Garbage collecting
+
+- Arbitrary large integers (GMP)
+

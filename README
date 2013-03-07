@@ -1,0 +1,30 @@
+	LIPA 0.0.13
+
+	Lame Interpreter Produced by Amateurs
+
+By
+	Simon Kågedal
+	Linus Åkerlund
+
+------------------------------------------------------------------
+
+LIPA is a interpreter for a Lisp dialect reminiscent of the Scheme
+language invented by Guy Lewis Steele Jr. and Gerald Jay Sussman.
+With the exception of LIPA being dynamically bound instead of the
+statically boundedness of Scheme, we're pretty much heading for R5RS.
+
+Yeah, right.
+
+Really, LIPA is just a toy.  If you want something usable, try Guile
+or MIT Scheme.  But in the year of 2002 y'all will be praising another
+Linus.  And a Simon.  YEAH.
+
+LIPA does have a number of... "features" which makes it a not very
+viable alternative for any kind of practal use, almost - it has no
+garbage collecting, it never actually has a thought of returning any
+memory to the system, it has lame-to-none error reporting, etc.  But
+for mere playing around, it starts up much faster than Guile, which is
+a *huge* pro, and it has tab completion.  Damn.  Guile has that too.
+Whatever.
+
+simon 1999-03-04

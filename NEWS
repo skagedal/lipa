@@ -1,0 +1,141 @@
+New in 0.0.13:
+
+ - "read" reworking - Linus
+
+ - New char type!  Procedures char?, char=?, char>?, char<?, char>=?,
+   char<=?, char-ci=?, char-ci>?, char-ci<?, char-ci>=?, char-ci<=?,
+   char-alphabetic?, char-numeric?, char-whitespace?, char-upper? and
+   char-lower?, char=>integer, integer->char, string->list,
+   list->string. - Linus
+
+ - Coredump fixes - Linus
+
+ - New procedure: eval - Simon
+
+ - New special form: begin - Simon
+
+ - Some command line options for LIPA the app - Simon
+
+New in 0.0.12:
+
+ - New conversion procedures: number->string, string->symbol,
+   symbol->string - Linus
+
+New in 0.0.11:
+
+ - Hacked up a "make install" - Simon
+
+ - Implemented userdefined objects (badly, see doc/userobject.txt)
+   - Simon
+
+ - Comments in sourcecode can now be made - Simon
+
+ - New C functions: lipa_cadr and lipa_caddr...  Should be made more
+   complete and have Lisp interface - Simon
+
+New in 0.0.10:
+
+ - String procedures: string>?, string<?, string<=?, string>=?,
+   string-ci<?, string-ci>?, string-ci<=?, string-ci>=?, substring
+   - Linus
+
+ - Converting procedures: string->number - Linus
+
+ - Fixed 8-bit cleanness - Simon
+
+ - Split up in a lib and a REPL program that uses that lib, major
+   API renaming - Simon
+
+New in 0.0.9:
+
+ - String predicates: string=? and string-ci=? - Linus
+
+ - String procedure: string-length - Linus
+
+ - Number predicates: zero?, positive?, negative?, odd? and even? - Linus
+
+New in 0.0.8:
+
+ - Better r5rs compliance - Linus
+
+ - More mathematical procedures, min, max, abs, gcd, floor,
+   ceiling, truncate, round and sqrt - Linus
+
+ - Predicates "boolean?" and "numbers?" - Linus
+
+ - < and > can now take 2 or more arguments, new procedures >= and <=
+   - Linus
+
+ - Loading with "load" should work - Simon
+
+ - Tab completion in the REPL - Simon
+
+New in 0.0.7:
+
+ - Strings parsing and printing handle \t, \n, \a, \b, \f, \r, \v, \\
+   \?, \', \", courtesy of Linus Åkerlund <uxm165t@tninet.se>
+
+ - Also from Linus, lipa handles floats!  Whoo!
+
+ - A ``display'' procedure
+
+New in 0.0.6:
+
+ - ?
+
+New in 0.0.5:
+
+ - Show error when division by zero (thank you Linus)
+
+ - Reworking of the LObject structure
+
+ - typepredicates.c: buncha new type predicates: symbolname?, list?,
+   string?, int?, symbol?, function?, subr? and lambda?.  (subr?
+   returns #t for builtin functions, lambda? for userdefine functions
+   and function? for both).  symbol? seems to never return #t.
+
+New in 0.0.4:
+
+ - Reworking of the reading functions.  Still not good.
+
+ - (define (square x) (* x x))
+
+ - special forms `and', `or' 
+
+New in 0.0.3:
+
+ - Mucho list-restructuring, much nicer now (for some values of "much")
+
+ - Functions cons, car, cdr, null?
+
+ - The lambda special form, e.g.:
+
+	(define square (lambda (x) (* x x)))
+
+	(define map (lambda (func list) 
+		(if (null? list) 
+			nil 
+			(cons (func (car list))
+				(map func (cdr list))))))
+
+	(define square-list (lambda (list) (map square list)))
+
+	... except there's no way to split a definition on several
+	    lines right now ...  :)
+
+   Function arguments are dynamically bound.
+
+ - The quote special form, e.g.:
+
+	(quote (1 2 3 4))
+
+ - The ' syntactic sugar for quote:
+
+	(square-list '(1 2 3 4))
+
+ - The "read" builtin function
+
+ - The "load" builtin function - it can only read files with one
+   "statement" per line...
+
+ - The "power" builtin function, courtesy of Linus Åkerlund

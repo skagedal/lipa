@@ -1,0 +1,155 @@
+Sat Mar 13 15:55:01 1999  Simon Kågedal  <sika8225@csd.uu.se>
+
+	* evalprocs.[ch]: new file: contains a "eval" procedure
+
+1999-03-11  Linus Åkerlund  <uxm165t@tninet.se>
+
+	* eval.c: added a check for NULL args, so that you won't get
+	coredumps when passing undefined symbols as arguments to
+	procedures or special forms, unless where appropriate.
+
+1999-03-10  Linus Åkerlund  <uxm165t@tninet.se>
+
+	* typepredicates.c: added char?.
+
+	* number.c, list.c: added typechecks to lisp procedures, which
+	should reduce the number of coredumps.
+
+	* convert.c: added char->integer, integer->char, string->list and
+	list->string.
+
+	* chars.c, chars.h (new files): added the following procedures:
+	char=?, char>?, char<?, char>=?, char<=?, char-ci=?, char-ci>?,
+	char-ci<?, char-ci>=?, char-ci<=?, char-alphabetic?,
+	char-numeric?, char-whitespace?, char-upper? and char-lower?.
+
+	* read.c: added char support.
+
+1999-03-09  Linus Åkerlund  <uxm165t@tninet.se>
+
+	* read.c and load.c: Rewrote large parts to make
+	lipa_read_general() and _l_read* take a string as argument.
+
+	* convert.c: added number->string, string->symbol, symbol->string.
+	(from lipa-patch-0.0.9-l3)
+	
+Tue Mar  9 17:15:56 1999  Simon Kågedal  <sika8225@csd.uu.se>
+
+	* basic.h: added NUMBERP and L_NUMBER
+
+	* read.c: skip comments
+
+	* list.c: added lipa_cadr, lipa_caddr since I wanted them, should
+	make the list more complete
+
+	* basic.[ch]: New type, L_OBJ_USEROBJECT
+
+Mon Mar  8 01:08:21 1999  Simon Kågedal  <sika8225@csd.uu.se>
+
+	* *.[ch]: libifying, major renaming all over the place
+
+1999-03-07  Simon Kågedal  <sika8225@csd.uu.se>
+
+	* moved files to lib/ and renamed some:
+
+	lispparser.[ch]		=> basic.[ch]
+	lipaconvert.[ch]	=> convert.[ch]
+	lipaint.[ch]		=> numbers.[ch]
+	lipastring.[ch]		=> strings.[ch]
+
+	* read.c: 8-bit cleanness: use guchar instead of gchar
+
+1999-03-05  Linus Åkerlund  <uxm165t@tninet.se>
+
+	* lipaconvert.c: added  this file and string->number.
+
+	* lipastring.c: added substring procedure.
+
+	* Added string>?, string<? etc.
+
+1999-03-04  Simon Kagedal  <sika8225@csd.uu.se>
+
+	* lispparser.c (symbol_complete): tab completion for symbols
+
+	* load.c: thought loading needed a file of it's own, since it is
+	not only reading but also evaluating.  loading now works.
+	
+	* print.c, print.h: split off from lispparser.[ch]
+
+	* lipaint.c (mod): fixed a bug
+
+1999-03-04  Linus Åkerlund  <uxm165t@tninet.se>
+
+	* Added predicates string=? and string-ci=?.
+
+	* Added string-length procedure.
+
+	* Added predicates zero?, positive?, negative?, odd? and even?.
+	
+1999-03-03  Linus Åkerlund  <uxm165t@tninet.se>
+
+	* Fixed < and > to take x > 1 number of arguments.  Added >= and
+	<=. 
+
+1999-03-01  Linus Åkerlund  <uxm165t@tninet.se>
+
+	* Changed the names of some procedures to make lipa a bit more
+	r5rs compliant.
+
+	* Added some more simple mathematical functions; min, max, abs,
+	gcd, floor, ceiling, truncate, round and sqrt.
+
+	* Added the predicates boolean? and number?.
+
+1999-03-01  Simon K}gedal  <sika8225@csd.uu.se>
+
+	* Included string patches ('\n', '\t' and friends)
+
+	* lipastring.c: New function ``display''
+
+1999-02-27  Linus Åkerlund  <uxm165t@tninet.se>
+
+	* Added support for floats.
+
+1999-02-26  Simon Kågedal  <sika8225@csd.uu.se>
+
+	* Released 0.0.6.  Thought of renaming it to "lithp".
+
+	* lipaint.c (divide): Integrated division by zero patch from Linus
+	Åkerlund <uxm165t@tninet.se>
+
+1999-02-26  Simon Kagedal  <sika8225@csd.uu.se>
+
+	* Released 0.0.5, bumped up version to 0.0.6.
+
+	* typepredicates.c: New file with some type predicates for use in
+	  Lisp
+
+	* lispparser.h: Reworked LObject.  Removed LSymbol, LFunction
+	  and those, have a big union in LObject instead.
+	  Added a bunch of type predicates for use in C.
+
+	* gonna do some restructuring, so "released" 0.0.4
+
+1999-02-24  Simon Kagedal  <sika8225@csd.uu.se>
+
+	* read.c: tried fixing up reading stuff... blah...
+
+1999-02-21  Simon Kagedal  <sika8225@csd.uu.se>
+
+	* lipalist.c, lipalist.h: cons and car and realizing the current
+	list handling is very wrong, see TODO
+
+	* list.c, list.h: some GSList helper functions
+
+	* lipaint.c: comparison functions
+
+	* lispparser.c: "if" special form
+
+1999-02-20  Simon Kagedal  <sika8225@csd.uu.se>
+
+	* lipaint.c, lipaint.h: Some simple int arithmetic functions
+
+	* lipastring.c, lipastring.h: An "append" function
+
+	* lispparser.c: Whoo!  It can do some stuff!
